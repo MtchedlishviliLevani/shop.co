@@ -1,0 +1,27 @@
+@import "tailwindcss";
+@import "./styles/typography.css";
+
+:root {
+  --color-primary: #000000;
+  --color-secondary: #ffffff;
+  --color-Tertiary: #f0f0f0;
+}
+
+@theme {
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-Tertiary: var(--color-Tertiary);
+  --default-font-family: "Satoshi", sans-serif;
+  --default-font-size: 16px;
+  --default-font-weight: 400;
+  --breakpoint-sm: 390px;
+  --breakpoint-md: 768px;
+  --container-general: 100%;
+  --container-max-width: 500px;
+  --font-Poppins: "Poppins", sans-serif;
+}
+.global-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
