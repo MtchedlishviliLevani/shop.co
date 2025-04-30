@@ -6,6 +6,7 @@ import user from "../assets/icons/user.svg"
 import MobileMenu from "./MobileMenu"
 import { useState } from "react"
 import NavItem from "./NavItem"
+import { useLocation } from "react-router"
 
 function Header() {
     const [isBurgerOpen, setIsBurgerOpen] = useState(false);
@@ -15,11 +16,14 @@ function Header() {
     function openBurger() {
         setIsBurgerOpen(true);
     }
+    const location = useLocation();
+    // border is needed everywhere except home page
+    const isNeededBorder = location.pathname !== "/"
     return (
         <header>
             <NotificationBar />
             <div className="global-container">
-                <div className="flex justify-between py-6 items-center xl:gap-10 xl:justify-start">
+                <div className={`flex justify-between py-6 items-center xl:gap-10 xl:justify-start ${isNeededBorder && "border-b border-solid border-primary/10"} `}>
                     <div className="flex items-center gap-[18px]  xl:self-start">
                         <img src={menu} onClick={openBurger} alt="menu" className="cursor-pointer xl:hidden" />
                         <span className="font-[Fontspring] text-[25px] mt-[-3px] xl:text-[32px]">SHOP.CO</span>
