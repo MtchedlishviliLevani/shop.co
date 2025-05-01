@@ -6,6 +6,7 @@ import Home from './pages/Home.tsx'
 import { createRoot } from 'react-dom/client'
 import Category from './pages/Category.tsx'
 import Product from './pages/Product.tsx'
+import { getProduct } from './services/api.tsx'
 const router = createBrowserRouter([{
   path: "/",
   element: <App />,// Layout
@@ -19,11 +20,23 @@ const router = createBrowserRouter([{
     element: <Category />,
   },
   {
-    path: "product/:productId",
+    path: "shop/:productId",
+    hydrateFallbackElement: <div>Loading...</div>,
+
     element: <Product />,
     loader: async ({ params }) => {
-      return params.productId
-    }
+      const { productId } = params;
+      if (!productId) {
+        throw new Error("Product ID is required");
+      }
+      try {
+        const response = await getProduct(productId);
+        return response;
+      } catch (error) {
+        console.error("Error fetching product:", error);
+        throw error;
+      }
+    },
   }]
 }])
 

@@ -4,7 +4,8 @@ export const navLinks = [
   {
     id: 3,
     title: "Services",
-    image: "/down.svg",
+    imageM: "/down.svg",
+    imageD: "/searchBlack.svg",
     submenu: [
       { id: 1, title: "Web Design" },
       { id: 2, title: "Web Development" },
@@ -15,7 +16,8 @@ export const navLinks = [
   {
     id: 4,
     title: "Shop",
-    image: "/down.svg",
+    imageM: "/down.svg",
+    imageD: "/searchBlack.svg",
     submenu: [
       { id: 5, title: "Privacy Policy" },
       { id: 6, title: "About Company" },
@@ -24,4 +26,42 @@ export const navLinks = [
     ],
   },
   { id: 9, title: "Testimonials" },
+];
+
+export const footerNav = [
+  {
+    title: "Company",
+    links: ["About", "Features of SHOP.CO", "Works", "Career"],
+  },
+  {
+    title: "Help",
+    links: [
+      "Customer Support",
+      "Delivery Details",
+      "Terms & Conditions",
+      "Privacy Policy",
+      "FAQ",
+    ],
+  },
+  {
+    title: "Account",
+    links: ["Manage Deliveries", "Orders", "Payments"],
+  },
+  {
+    title: "Resources",
+    links: [
+      "Free eBooks",
+      "Development Tutorial",
+      "How to - Blog",
+      "Youtube Playlist",
+    ],
+  },
+];
+
+///Category image array
+export const imgSrc = [
+  { name: "Casual", src: "/casual.png", isWide: false },
+  { name: "Formal", src: "/formal.png", isWide: true },
+  { name: "Party", src: "/party.png", isWide: true },
+  { name: "Gym", src: "/gym.png", isWide: false },
 ];

@@ -15,13 +15,69 @@
   --default-font-size: 16px;
   --default-font-weight: 400;
   --breakpoint-sm: 390px;
-  --breakpoint-md: 768px;
+  --breakpoint-2xl: 1440px;
   --container-general: 100%;
   --container-max-width: 500px;
   --font-Poppins: "Poppins", sans-serif;
+  --font-Fontspring: "Fontspring", sans-serif;
 }
 .global-container {
   width: 100%;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+@media (min-width: 1280px) {
+  .global-container {
+    padding: 0 100px;
+  }
+}
+
+/* LogoSlider.css */
+
+/* LogoSlider.css */
+
+/* global.css or LogoSlider.module.css */
+.swiper-free-mode > .swiper-wrapper {
+  transition-timing-function: linear;
+}
+
+.c-carousel img {
+  margin: 0 auto;
+  max-width: 100%;
+  display: block;
+}
+
+/* Hero IMage */
+.obj-pos {
+  object-position: center 10px;
+}
+@media (min-width: 768px) {
+  .obj-pos {
+    object-position: center -90px;
+  }
+}
+
+.feedback-swiper .swiper-slide {
+  width: 100%;
+  transform: scale(1);
+  opacity: 0.3;
+  filter: blur(4px);
+  transition: all 0.3s ease;
+}
+
+.feedback-swiper .swiper-slide-active,
+.feedback-swiper .swiper-slide-next,
+.feedback-swiper .swiper-slide-prev {
+  transform: scale(1);
+  opacity: 1;
+  filter: none;
+}
+
+.feedback-swiper .swiper-wrapper {
+  overflow: visible;
+}
+
+.feedback-swiper {
+  overflow: visible;
 }
