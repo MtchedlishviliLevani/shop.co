@@ -1,6 +1,6 @@
 export const navLinks = [
   { id: 1, title: "Home" },
-  { id: 2, title: "About" },
+  { id: 2, title: "Category" },
   {
     id: 3,
     title: "Services",
@@ -65,3 +65,19 @@ export const imgSrc = [
   { name: "Party", src: "/party.png", isWide: true },
   { name: "Gym", src: "/gym.png", isWide: false },
 ];
+
+/// filter data
+export const colorsList = [
+  "#00c12b",
+  "#f50606",
+  "#f5dd06",
+  "#f57906",
+  "#06caf5",
+  "#063af5",
+  "#7d06f5",
+  "#f506a4",
+  "#ffffff",
+  "#000000",
+];
+export const sizes = ["Small", "Medium", "Large", "X-Large"];
+export const dressStyles = ["T-shirts", "Shorts", "Shirts", "Hoodie", "Jeans"];

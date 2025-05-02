@@ -9,6 +9,8 @@ import settings from "../assets/icons/settings.svg"
 import ProductsSlider from "../components/ProductsSlider";
 import ImagesSection from "../components/productPage/ImagesSection";
 import ProductDetailInfo from "../components/productPage/ProductDetailInfo";
+import type { Product, Review } from "../types";
+
 function Product() {
     const data = useLoaderData() as Product;
     const location = useLocation()
@@ -30,25 +32,25 @@ function Product() {
 
     }, [data.id])
     return (
-        <div className="mb-[300px] ">
+        <div className="mb-[200px] ">
             <div className="global-container">
                 <div className="flex gap-2 items-center my-[22px] xl:mb-[32px]">
                     <span className="capitalize text-[14px] text-primary/60">home</span><img src={rightIcon} />
                     <span className="capitalize text-[14px] text-primary/60">{pathnameSegments}</span><img src={rightIcon} />
                     <span className="capitalize text-[14px] text-primary/60">{data.category}</span>
                 </div>
-                <div className="flex flex-col justify-between xl:flex-row gap-[20px] xl:max-h-[570px]">
+                <div className="flex flex-col justify-between xl:flex-row gap-[20px] ">
                     <ImagesSection />
 
                     <ProductDetailInfo data={data} />
                 </div>
                 <div className="py-6 ">
-                    <div className="w-full border-b border-primary/20 flex">
+                    <div className="w-full border-b border-primary/20 flex mt-[30px]">
                         {infoList.map((item, index) => (
                             <button
                                 onClick={() => setActiveInfoIndxe(index)}
                                 key={index}
-                                className={`w-1/3 pb-2 text-center text-[14px] xl:text-[20px]
+                                className={`w-1/3 pb-2 cursor-pointer text-center text-[14px] xl:text-[20px]
         ${activeInfoIndex === index
                                         ? "border-b-2 border-primary text-primary font-medium"
                                         : "border-b border-transparent text-primary/60"}
@@ -68,7 +70,7 @@ function Product() {
                                 <img src={settings} />
                             </div>
 
-                            <Button className="px-[12px]">Write a Review</Button>
+                            <Button className="px-[12px] cursor-pointer">Write a Review</Button>
                         </div>
                     </div>
                     <div className="flex flex-col gap-[12px]">
