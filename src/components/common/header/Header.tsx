@@ -1,12 +1,12 @@
-import NotificationBar from "../UI/NotificationBar"
-import menu from "../assets/icons/menu.svg"
-import search from "../assets/icons/search.svg"
-import cart from "../assets/icons/cart.svg"
-import user from "../assets/icons/user.svg"
+import NotificationBar from "../../../UI/NotificationBar"
+import menu from "../../../assets/icons/menu.svg"
+import search from "../../../assets/icons/search.svg"
+import cart from "../../../assets/icons/cart.svg"
+import user from "../../../assets/icons/user.svg"
 import MobileMenu from "./MobileMenu"
 import { useState } from "react"
 import NavItem from "./NavItem"
-import { useLocation } from "react-router"
+import { Link, useLocation } from "react-router"
 
 function Header() {
     const [isBurgerOpen, setIsBurgerOpen] = useState(false);
@@ -26,7 +26,8 @@ function Header() {
                 <div className={`flex justify-between py-6 items-center xl:gap-10 xl:justify-start ${isNeededBorder && "border-b border-solid border-primary/10"} `}>
                     <div className="flex items-center gap-[18px]  xl:self-start">
                         <img src={menu} onClick={openBurger} alt="menu" className="cursor-pointer xl:hidden" />
-                        <span className="font-[Fontspring] text-[25px] mt-[-3px] xl:text-[32px]">SHOP.CO</span>
+                        <Link to={"/"}> <span className="font-[Fontspring] text-[25px] mt-[-3px] xl:text-[32px]">SHOP.CO</span>
+                        </Link>
                     </div>
                     <div className="hidden xl:flex flex-1 justify-center gap-10 items-center xl:self-start">
                         <div className="xl:flex xl:gap-6 "><NavItem /></div>

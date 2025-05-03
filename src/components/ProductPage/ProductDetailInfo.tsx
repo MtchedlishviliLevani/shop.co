@@ -7,25 +7,40 @@ import minusIcon from "../../assets/icons/minus.svg"
 import plusIcon from "../../assets/icons/plus.svg"
 import SaleTag from "../../UI/SaleTag";
 import { calculatePercentageChange } from "../../utils";
-
+import { Product } from "../../types";
+import { useCart } from "../../context/CartContext";
+import { useNavigate } from "react-router";
 
 function ProductDetailInfo({ data }: { data: Product }) {
     const [amountOfItems, setAmountOfItems] = useState(1);
     const [activeColor, setActiveColor] = useState(data.colors[0]);
     const [activeSize, setActiveSize] = useState<null | string>(null);
-
+    const { addToCart } = useCart();
+    const navigate = useNavigate();
     const [average, setAverage] = useState<number | undefined>();
     useEffect(() => {
         getAverage(data.id).then((average) => setAverage(average))
     }, [data.id])
+
     const handleIncrement = () => {
         setAmountOfItems((prev) => prev + 1);
     }
+
     const handleDecrement = () => {
         if (amountOfItems > 1) {
             setAmountOfItems((prev) => prev - 1);
         }
     }
+
+    const handleAddToCart = () => {
+        if (!activeSize) {
+            alert("Please select a size");
+            return;
+        }
+        addToCart(data, amountOfItems, activeSize, activeColor);
+        navigate("/cart");
+    }
+
     const percentageChange = calculatePercentageChange(data.priceBeforeSale, data.price);
 
     return (
@@ -55,7 +70,7 @@ function ProductDetailInfo({ data }: { data: Product }) {
                     ))}
                 </div>
             </div>
-            <div className="py-6 border-b border-primary/10">
+            <div className="py-6">
                 <h4 className="text-[14px] text-primary/60 xl:text-[16px]">Choose Size</h4>
                 <div className="flex gap-3 items-center mt-4">
                     {data.sizes.map((size, index) => (
@@ -72,7 +87,7 @@ function ProductDetailInfo({ data }: { data: Product }) {
                     <img onClick={handleIncrement} src={plusIcon} alt="" className="cursor-pointer" />
                 </Button>
 
-                <Button variant="primary" className="">Add to Cart</Button>
+                <Button variant="primary" className="cursor-pointer" onClick={handleAddToCart}>Add to Cart</Button>
             </div>
         </div>
     )

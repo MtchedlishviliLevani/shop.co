@@ -1,4 +1,4 @@
-import { footerNav } from "../data"
+import { footerNav } from "../../../data"
 import { Link } from "react-router"
 function FooterLinkSection() {
     return (

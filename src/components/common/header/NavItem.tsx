@@ -1,5 +1,5 @@
 import React from "react";
-import { navLinks } from "../data";
+import { navLinks } from "../../../data";
 import { NavLink } from "react-router";
 import { useState } from "react";
 

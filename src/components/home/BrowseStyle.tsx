@@ -1,4 +1,4 @@
-import { imgSrc } from "../data"
+import { imgSrc } from "../../data"
 function BrowseStyle() {
     return (
         <div className="global-container">

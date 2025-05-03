@@ -1,7 +1,7 @@
-import NewsLetter from "./NewsLetter";
-import FooterSocial from "./FooterSocial";
-import FooterLegal from "./FooterLegal";
-import FooterLinkSection from "./FooterLinkSection";
+import NewsLetter from "../footer/NewsLetter";
+import FooterLegal from "../footer/FooterLegal";
+import FooterLinkSection from "../footer/FooterLinkSection";
+import FooterSocial from "../footer/FooterSocial";
 
 function Footer() {
     return (

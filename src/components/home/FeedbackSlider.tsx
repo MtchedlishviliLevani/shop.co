@@ -1,15 +1,16 @@
-import arrow from "../assets/icons/arrow.svg"
-import Rating from "../UI/Rating"
-import check from "../assets/icons/check.svg"
+import arrow from "../../assets/icons/arrow.svg"
+import Rating from "../../UI/Rating"
+import check from "../../assets/icons/check.svg"
 import { SwiperSlide, Swiper } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import { useEffect, useState } from "react";
-import { getFeedback } from "../services/api";
+import { getFeedback } from "../../services/api";
+import { Feedback } from "../../types";
 
 function FeedbackSlider() {
     const [feedbacks, setFeedbacks] = useState<Feedback[]>([]);
     useEffect(() => {
-        getFeedback().then((data) => {
+        getFeedback().then((data: Feedback[]) => {
             setFeedbacks(data)
         })
     }, [])

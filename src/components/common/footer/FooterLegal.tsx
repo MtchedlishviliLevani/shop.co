@@ -1,8 +1,8 @@
-import visa from '../assets/icons/visa.svg';
-import mastercard from '../assets/icons/mastercard.svg';
-import paypal from '../assets/icons/paypal.svg';
-import apple from '../assets/icons/apple.svg';
-import google from '../assets/icons/google.svg';
+import visa from "../../../assets/icons/visa.svg"
+import mastercard from "../../../assets/icons/mastercard.svg"
+import paypal from "../../../assets/icons/paypal.svg"
+import apple from "../../../assets/icons/apple.svg"
+import google from "../../../assets/icons/google.svg"
 function FooterLegal() {
     return (
         <>

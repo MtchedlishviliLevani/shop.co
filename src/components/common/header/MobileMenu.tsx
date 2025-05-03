@@ -1,4 +1,5 @@
-import close from "../assets/icons/close.svg";
+import close from "../../../assets/icons/close.svg"
+import Button from "../../../UI/Button";
 import NavItem from "./NavItem";
 function MobileMenu({ onCloseBurger }: { onCloseBurger: () => void }) {
 
@@ -9,7 +10,7 @@ function MobileMenu({ onCloseBurger }: { onCloseBurger: () => void }) {
                 <div className="flex flex-col gap-8">
                     <NavItem />
                 </div>
-                <button className="mr-auto">Sign Up Now</button>
+                <Button className="mr-auto w-1/4">Sign Up Now</Button>
             </div></div>
     );
 }

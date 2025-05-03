@@ -1,6 +1,7 @@
-import star1 from "../assets/icons/Vector (2).svg"
-import star2 from "../assets/icons/Vector (3).svg"
-import mainImage from "../assets/man-woman-fashion.png"
+
+import star1 from "../../assets/icons/Vector (2).svg"
+import star2 from "../../assets/icons/Vector (3).svg"
+import mainImage from "../../assets/man-woman-fashion.png"
 function HeroImage() {
     return (
         <div className="relative  w-full h-[600px] overflow-hidden xl:overflow-visible ">

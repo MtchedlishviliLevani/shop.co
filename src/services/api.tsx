@@ -1,3 +1,5 @@
+import type { Product, Review } from "../types";
+
 // I use 2 urls because I created 3 resources in mockapi
 const url1 = `https://680f694c67c5abddd1953253.mockapi.io`;
 
@@ -18,14 +20,14 @@ export async function getAverage(productId: string) {
     if (!response.ok) {
         throw new Error('Network response was not ok');
     }
-    const reviews = await response.json();
+    const reviews: Review[] = await response.json();
 
     // Now calculate average for the given productId
-    const productReviews = reviews.filter(review => review.productId === productId);
+    const productReviews = reviews.filter((review: Review) => review.productId === productId);
 
     if (productReviews.length === 0) return 0;
 
-    const totalRating = productReviews.reduce((sum, review) => sum + review.rating, 0);
+    const totalRating = productReviews.reduce((sum: number, review: Review) => sum + review.rating, 0);
     const averageRating = totalRating / productReviews.length;
 
     return averageRating
@@ -104,26 +106,64 @@ export async function getRandomProducts() {
     }
 }
 
+interface ProductFilters {
+    categories?: string[];
+    colors?: string[];
+    sizes?: string[];
+    type?: string[];
+    priceRange?: {
+        min: number;
+        max: number;
+    };
+}
 
-
-export async function getProducts(filters = {}) {
-
+export async function getProducts(filters: ProductFilters = {}) {
     try {
-        const query = [];
-
-        for (const key in filters) {
-            if (filters[key]) {
-                query.push(`${key}=${filters[key]}`);
-            }
+        const response = await fetch(`${url1}/product`);
+        if (!response.ok) {
+            throw new Error(`API request failed with status ${response.status}`);
         }
 
-        const queryString = query.length ? `?${query.join('&')}` : '';
-        const response = await fetch(`${url1}/product${queryString}`);
-        const data = await response.json();
-        return data;
+        let products: Product[] = await response.json();
+
+        // Apply filters client-side since mockapi doesn't support complex filtering
+        if (filters.categories?.length) {
+            products = products.filter(product =>
+                filters.categories?.includes(product.category.toLowerCase())
+            );
+        }
+
+        if (filters.colors?.length) {
+            products = products.filter(product =>
+                product.colors.some(color => filters.colors?.includes(color))
+            );
+        }
+
+        if (filters.sizes?.length) {
+            products = products.filter(product =>
+                product.sizes.some(size => filters.sizes?.includes(size))
+            );
+        }
+
+        if (filters.type?.length) {
+            products = products.filter(product =>
+                filters.type?.includes(product.type)
+            );
+        }
+
+        // Apply price range filter
+        if (filters.priceRange) {
+            products = products.filter(product =>
+                product.price >= filters.priceRange!.min &&
+                product.price <= filters.priceRange!.max
+            );
+        }
+
+        return products;
     } catch (error) {
-        console.error("Error fetching products", error);
+        console.error("Error fetching products:", error);
         return [];
     }
 }
+
 

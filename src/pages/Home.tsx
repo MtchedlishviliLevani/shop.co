@@ -1,11 +1,11 @@
-import InfoHighlights from "../components/InfoHighlights"
+import InfoHighlights from "../components/home/InfoHighlights"
 import Button from "../UI/Button"
-import HeroImage from "../components/HeroImage"
-import LogoSlider from "../components/LogoSlider"
-import TopSelling from "../components/TopSelling"
-import NewArrivals from "../components/NewArrivals"
-import BrowseStyle from "../components/BrowseStyle"
-import FeedbackSlider from "../components/FeedbackSlider"
+import HeroImage from "../components/home/HeroImage"
+import LogoSlider from "../components/home/LogoSlider"
+import TopSelling from "../components/home/TopSelling"
+import NewArrivals from "../components/home/NewArrivals"
+import BrowseStyle from "../components/home/BrowseStyle"
+import FeedbackSlider from "../components/home/FeedbackSlider"
 import { Link } from "react-router"
 function Home() {
     return (
