@@ -20,9 +20,9 @@ function FeedbackSlider() {
         <div className="mt-[50px] xl:mt-[80px] mb-[50px] xl:mb-[80px]">
             <div className="global-container">
                 <div className="flex justify-between items-center">
-                    <h2 className="text-[32px] font-Fontspring font-bold xl:text-5xl">OUR HAPPY CUSTOMERS</h2>
-                    <div className="flex gap-4 items-center">
-                        <img src={arrow} className=" swiper-button-prev cursor-pointer" alt="left arrow icon " />
+                    <h2 className="text-[28px] font-Fontspring font-bold xl:text-5xl">OUR HAPPY CUSTOMERS</h2>
+                    <div className="flex gap-1 justify-between md:gap-4 items-center">
+                        <img src={arrow} className="swiper-button-prev cursor-pointer" alt="left arrow icon " />
                         <img className="swiper-button-next rotate-180 cursor-pointer" src={arrow} alt="right arrow icon" />
 
                     </div>
@@ -33,9 +33,9 @@ function FeedbackSlider() {
                     <Swiper
                         spaceBetween={16}
                         slidesPerView={1}
-                        loop={true}
+
                         breakpoints={{
-                            640: { slidesPerView: 1.5 },
+
                             768: { slidesPerView: 2 },
                             1024: {
                                 slidesPerView: 3,

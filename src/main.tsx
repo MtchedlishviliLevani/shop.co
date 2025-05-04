@@ -13,6 +13,8 @@ import Cart from './pages/Cart'
 import ProtectedRoute from './components/ProtectedRoute'
 import { AuthProvider } from './context/AuthContext.tsx'
 import { CartProvider } from './context/CartContext'
+import CreateReview from './pages/CreateReview'
+import Loading from './UI/Loading.tsx'
 
 const router = createBrowserRouter([
   {
@@ -59,8 +61,8 @@ const router = createBrowserRouter([
       },
       {
         path: "shop/:productId",
-        hydrateFallbackElement: <div>Loading...</div>,
-        element: <Product />,
+        hydrateFallbackElement: <Loading />,
+        element: <AuthProvider><Product /></AuthProvider>,
         loader: async ({ params }) => {
           const { productId } = params;
           if (!productId) {
@@ -74,6 +76,10 @@ const router = createBrowserRouter([
             throw error;
           }
         },
+      },
+      {
+        path: "create-review/:productId",
+        element: <CreateReview />,
       }
     ]
   }

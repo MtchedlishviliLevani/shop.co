@@ -9,7 +9,7 @@ import FeedbackSlider from "../components/home/FeedbackSlider"
 import { Link } from "react-router"
 function Home() {
     return (
-        <div className="mb-[150px]">
+        <div className="">
             <div className="bg-Tertiary pt-10">
                 <div className="xl:flex justify-between items-center overflow-visible max-w-[1440px]">
                     <div className="global-container">

@@ -1,31 +1,7 @@
 export const navLinks = [
   { id: 1, title: "Home" },
   { id: 2, title: "Category" },
-  {
-    id: 3,
-    title: "Services",
-    imageM: "/down.svg",
-    imageD: "/searchBlack.svg",
-    submenu: [
-      { id: 1, title: "Web Design" },
-      { id: 2, title: "Web Development" },
-      { id: 3, title: "Mobile App" },
-      { id: 4, title: "Digital Marketing" },
-    ],
-  },
-  {
-    id: 4,
-    title: "Shop",
-    imageM: "/down.svg",
-    imageD: "/searchBlack.svg",
-    submenu: [
-      { id: 5, title: "Privacy Policy" },
-      { id: 6, title: "About Company" },
-      { id: 7, title: "Payment Gateway" },
-      { id: 8, title: "Terms & Conditions" },
-    ],
-  },
-  { id: 9, title: "Testimonials" },
+  { id: 3, title: "Feedback" },
 ];
 
 export const footerNav = [

@@ -87,7 +87,31 @@ export interface ProductsSliderProps {
   fetchProducts: () => Promise<Product[]>;
 }
 
-// Module Declarations
-declare module "swiper/css" {
-  export * from "swiper";
+// there are swiper types issues and I defined Module Declarations
+// swiper.d.ts
+declare module "swiper/css" {}
+declare module "swiper/css/pagination" {}
+declare module "swiper/css/autoplay" {}
+declare module "swiper/css/effect-fade" {}
+declare module "swiper/css/navigation" {}
+// Any other styles you need...
+
+// api types
+interface ProductFilters {
+  categories?: string[];
+  colors?: string[];
+  sizes?: string[];
+  type?: string[];
+  priceRange?: {
+    min: number;
+    max: number;
+  };
+}
+
+interface ReviewData {
+  productId: string;
+  clientFullname: string;
+  text: string;
+  rating: number;
+  createdAt: string;
 }

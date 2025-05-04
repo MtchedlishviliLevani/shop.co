@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode } from 'swiper/modules';
-import 'swiper/css';
 
+/// this variable i should move to data.ts file
 const logos = [
     '/logos/versace.svg',
     '/logos/zara.svg',

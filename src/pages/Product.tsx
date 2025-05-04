@@ -1,4 +1,4 @@
-import { useLoaderData, useLocation } from "react-router"
+import { useLoaderData, useLocation, Link } from "react-router"
 import rightIcon from "../assets/icons/rightDirec.svg"
 import Rating from "../UI/Rating";
 import { useEffect, useState } from "react";
@@ -32,7 +32,7 @@ function Product() {
 
     }, [data.id])
     return (
-        <div className="mb-[200px] ">
+        <div className="">
             <div className="global-container">
                 <div className="flex gap-2 items-center my-[22px] xl:mb-[32px]">
                     <span className="capitalize text-[14px] text-primary/60">home</span><img src={rightIcon} />
@@ -70,7 +70,12 @@ function Product() {
                                 <img src={settings} />
                             </div>
 
-                            <Button className="px-[12px] cursor-pointer">Write a Review</Button>
+                            <Link
+                                to={`/create-review/${data.id}`}
+                                className="text-primary hover:underline"
+                            >
+                                <Button className="px-[12px] cursor-pointer"> Write a Review</Button>
+                            </Link>
                         </div>
                     </div>
                     <div className="flex flex-col gap-[12px]">

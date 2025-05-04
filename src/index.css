@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "./styles/typography.css";
 
+/* this import in jsx file is not working */
+@import "swiper/css";
+
 :root {
   --color-primary: #000000;
   --color-secondary: #ffffff;
@@ -58,6 +61,7 @@
   }
 }
 
+/* this must remove */
 .feedback-swiper .swiper-slide {
   width: 100%;
   transform: scale(1);

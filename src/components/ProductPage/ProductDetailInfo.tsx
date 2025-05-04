@@ -10,6 +10,7 @@ import { calculatePercentageChange } from "../../utils";
 import { Product } from "../../types";
 import { useCart } from "../../context/CartContext";
 import { useNavigate } from "react-router";
+import { useAuth } from "../../context/useAuth";
 
 function ProductDetailInfo({ data }: { data: Product }) {
     const [amountOfItems, setAmountOfItems] = useState(1);
@@ -18,6 +19,8 @@ function ProductDetailInfo({ data }: { data: Product }) {
     const { addToCart } = useCart();
     const navigate = useNavigate();
     const [average, setAverage] = useState<number | undefined>();
+    const { isAuthenticated } = useAuth();
+    console.log(isAuthenticated, "isAuthenticated")
     useEffect(() => {
         getAverage(data.id).then((average) => setAverage(average))
     }, [data.id])
@@ -38,7 +41,11 @@ function ProductDetailInfo({ data }: { data: Product }) {
             return;
         }
         addToCart(data, amountOfItems, activeSize, activeColor);
-        navigate("/cart");
+        if (isAuthenticated) {
+            navigate("/cart");
+        } else {
+            navigate("/login");
+        }
     }
 
     const percentageChange = calculatePercentageChange(data.priceBeforeSale, data.price);

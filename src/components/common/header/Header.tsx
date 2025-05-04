@@ -6,6 +6,7 @@ import user from "../../../assets/icons/user.svg"
 import MobileMenu from "./MobileMenu"
 import { useState } from "react"
 import NavItem from "./NavItem"
+import { useNavigate } from "react-router";
 import { Link, useLocation } from "react-router"
 
 function Header() {
@@ -19,6 +20,7 @@ function Header() {
     const location = useLocation();
     // border is needed everywhere except home page
     const isNeededBorder = location.pathname !== "/"
+    const navigate = useNavigate();
     return (
         <header>
             <NotificationBar />
@@ -38,22 +40,16 @@ function Header() {
 
                     <div className="flex gap-[12px] items-center xl:self-start xl:mt-2">
                         <img src={search} alt="search" className="xl:hidden" />
-                        <img src={cart} alt="cart" className="" />
-                        <img src={user} alt="user" className="" />
+                        <img src={cart} alt="cart" onClick={() => navigate("/cart")} className=" cursor-pointer" />
+                        <img src={user} alt="user" onClick={() => navigate("/login")} className="cursor-pointer " />
                     </div>
 
                 </div>
             </div>
-            <nav className="">
-
-                <ul>
-                    {isBurgerOpen &&
-                        <MobileMenu onCloseBurger={closeBurger} />}
-
-                </ul>
-
+            <nav>
+                <MobileMenu onCloseBurger={closeBurger} isOpen={isBurgerOpen} />
             </nav>
-        </header >
+        </header>
     )
 }
 

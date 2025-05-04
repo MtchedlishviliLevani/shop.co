@@ -117,7 +117,7 @@ const Cart = () => {
                         <div className="flex gap-2 mt-4">
                             <input
                                 onChange={handlePromoCodeChange}
-                                value={promoCode}
+                                value={promoCode ?? ""}
                                 type="text"
                                 placeholder="Add promo code"
                                 className="w-[67%] px-4 py-2 bg-Tertiary rounded-[62px] outline-none"

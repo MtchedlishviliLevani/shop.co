@@ -23,6 +23,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         navigate('/login');
     }, [navigate]);
 
+    // logout after 10 minutes
     useEffect(() => {
         const timer = setTimeout(() => {
             if (isAuthenticated) {

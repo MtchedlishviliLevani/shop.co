@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router';
 import { useAuth } from '../context/useAuth';
 import Button from '../UI/Button';
@@ -7,13 +7,16 @@ import Button from '../UI/Button';
 const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { login } = useAuth();
+    const { login, isAuthenticated } = useAuth();
     const navigate = useNavigate();
 
+    useEffect(() => {
+        if (isAuthenticated) {
+            navigate("/")
+        }
+    }, [isAuthenticated, navigate])
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // In a real app, you would send registration data to server
-        // For demo, we'll just create a token
         const token = Math.random().toString(36).substring(7);
         login(token);
         navigate('/cart');
@@ -69,7 +72,7 @@ const Register = () => {
                     <div className='flex flex-col gap-3'>
                         <button className='flex items-center justify-center gap-2 w-full py-2 px-4 border border-[#04030899] rounded-md hover:bg-gray-50 transition-colors'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <g clip-path="url(#clip0_1_5266)">
+                                <g clipPath="url(#clip0_1_5266)">
                                     <path d="M19.3152 10.2188C19.3152 9.57304 19.2628 8.92376 19.1511 8.28845H10.1904V11.9467H15.3218C15.1089 13.1266 14.4247 14.1703 13.4228 14.8336V17.2072H16.4842C18.2819 15.5526 19.3152 13.1091 19.3152 10.2188Z" fill="#4285F4" />
                                     <path d="M10.1896 19.5006C12.7518 19.5006 14.9126 18.6594 16.4869 17.2072L13.4255 14.8335C12.5738 15.413 11.4742 15.7411 10.1931 15.7411C7.71471 15.7411 5.6133 14.0691 4.8593 11.821H1.7002V14.268C3.31291 17.476 6.59768 19.5006 10.1896 19.5006Z" fill="#34A853" />
                                     <path d="M4.85661 11.8211C4.45866 10.6412 4.45866 9.36362 4.85661 8.18375V5.73676H1.70099C0.353575 8.42112 0.353575 11.5837 1.70099 14.2681L4.85661 11.8211Z" fill="#FBBC04" />

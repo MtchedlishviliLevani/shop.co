@@ -5,7 +5,7 @@ import FooterSocial from "../footer/FooterSocial";
 
 function Footer() {
     return (
-        <footer className="bg-Tertiary relative pt-[220px] xl:pt-[140px]">
+        <footer className="bg-Tertiary relative  pt-[220px] xl:pt-[140px]">
             <div className="absolute top-[0%] w-full translate-y-[-50%]"><NewsLetter /></div>
 
             <div className="global-container">

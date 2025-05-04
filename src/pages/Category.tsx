@@ -5,8 +5,9 @@ import ProductsFilterBar from "../components/productPage/ProductsFilterBar";
 import ProductCard from "../components/productPage/ProductCard";
 import Pagination from "../components/category/Pagination";
 import { ProductWithRating, Filters } from "../types";
+import Loading from "../UI/Loading";
 
-// Constants
+
 const PRODUCTS_PER_PAGE = 8;
 
 function Category() {
@@ -78,7 +79,7 @@ function Category() {
     const closeFilter = () => setIsOpenFilter(false);
 
     return (
-        <div className="mb-[200px]">
+        <div className="">
             <div className="global-container">
                 <div className="xl:grid xl:grid-cols-[20%_80%] xl:gap-5 mt-[24px]">
                     {isMobile ? (
@@ -111,7 +112,7 @@ function Category() {
                             <h2 className="font-bold text-[24px] xl:text-[32px]">Casual</h2>
                             <h3 className="text-[14px] text-primary/60 xl:text-[16px]">
                                 {loading ? (
-                                    "Loading products..."
+                                    <Loading />
                                 ) : (
                                     `Showing ${startIndex + 1}–${Math.min(startIndex + PRODUCTS_PER_PAGE, filteredProducts.length)} of ${filteredProducts.length} Products`
                                 )}
@@ -126,7 +127,7 @@ function Category() {
 
                         <div>
                             {loading ? (
-                                <div className="text-center py-8">Loading products...</div>
+                                <Loading />
                             ) : filteredProducts.length === 0 ? (
                                 <div className="text-center py-8">No products found matching your filters.</div>
                             ) : (
