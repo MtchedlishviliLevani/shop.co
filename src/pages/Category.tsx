@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import settings from "../assets/icons/settings.svg";
 import { getProducts, getAverage } from "../services/api";
-import ProductsFilterBar from "../components/productPage/ProductsFilterBar";
-import ProductCard from "../components/productPage/ProductCard";
+import ProductsFilterBar from "../components/ProductPage/ProductsFilterBar";
+import ProductCard from "../components/ProductPage/ProductCard";
 import Pagination from "../components/category/Pagination";
 import { ProductWithRating, Filters } from "../types";
 import Loading from "../UI/Loading";

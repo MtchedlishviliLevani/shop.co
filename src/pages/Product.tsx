@@ -7,8 +7,8 @@ import { getRandomProducts, getReview } from "../services/api";
 import check from "../assets/icons/check.svg"
 import settings from "../assets/icons/settings.svg"
 import ProductsSlider from "../components/ProductsSlider";
-import ImagesSection from "../components/productPage/ImagesSection";
-import ProductDetailInfo from "../components/productPage/ProductDetailInfo";
+import ImagesSection from "../components/ProductPage/ImagesSection";
+import ProductDetailInfo from "../components/ProductPage/ProductDetailInfo";
 import type { Product, Review } from "../types";
 
 function Product() {
